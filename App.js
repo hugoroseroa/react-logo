@@ -1,47 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { getPersonajes } from './lib/rickyMortin';
 import { SafeAreaView } from 'react-native-web';
 import Logo from './components/Logo';
-import { CharacterCard } from './components/CharacterCard';
+import { Main } from './components/Main';
+
 
 
 
 export default function App() {
   
-  const[personajes, setPersonajes]=useState([]);
+/*   const[personajes, setPersonajes]=useState([]);
 useEffect(()=>{
   getPersonajes().then((data)=>{
     setPersonajes(data);
     console.log("personajes:",data)
-  })
+  }) 
 
-},[]);
+},[]);*/
 
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar style='light' />
       <Logo style={styles.logo}/>
-      <ScrollView>
-      {personajes.map((character) => (
-
-       <CharacterCard character= {character}/>
-        
-       /*  <View key={character.id} style={styles.card}>
-          <Image style={styles.image} source={{ uri:character.image}} />
-          <Text style={styles.title}>{character.name}</Text>
-          <Text style={styles.species}>{character.species}</Text>
-          <Text style={styles.status}>{character.status}</Text>
-          <Text style={styles.gender}>{character.gender}</Text>
-        </View> */
-        
-
-      ))}
-      
-      </ScrollView>
-    </SafeAreaView>
+      <Main/>
+    </View>
     
   );
 }
